@@ -1,1 +1,104 @@
-<p>person-create works!</p>
+<main fxLayout="column" fxLayoutAlign="space-evely start" [style.margin-left.rem]="1">
+  <h2>Preencha os campos necessarios para criar um novo usuário</h2>
+
+  <form
+    *ngIf="formRegister"
+    [formGroup]="formRegister"
+    [style.minWidth.vw]="'12.5'"
+    [style.maxWidth.vw]="'41.6'"
+    [style.width]="'100%'"
+    (ngSubmit)="onSubmit()"
+  >
+    <table aria-describedby="formulário de preenchimento" [style.width]="'100%'">
+      <th>
+        <tr>
+          <td>
+            <mat-form-field appearance="fill" [style.width]="'100%'">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="your name" autocomplete="off" formControlName="name" required />
+
+              <mat-error *ngIf="formRegister.get('name')?.invalid">
+                <span *ngIf="formRegister.get('name')?.errors?.['required']">Campo obrigatório</span>
+              </mat-error>
+
+              <mat-error *ngIf="formRegister.get('name')?.invalid">
+                <span *ngIf="formRegister.get('name')?.errors?.['pattern']">O campo só permite letras</span>
+              </mat-error>
+            </mat-form-field>
+          </td>
+
+          <td>
+            <mat-form-field appearance="fill" [style.width]="'100%'">
+              <mat-label>Age</mat-label>
+              <input
+                matInput
+                placeholder="your age"
+                autocomplete="off"
+                formControlName="age"
+                minlength="2"
+                maxlength="2"
+                required
+              />
+
+              <mat-error *ngIf="formRegister.get('age')?.invalid">
+                <span *ngIf="formRegister.get('age')?.errors?.['required']">Campo obrigatório</span>
+              </mat-error>
+
+              <mat-error *ngIf="formRegister.get('age')?.invalid">
+                <span *ngIf="formRegister.get('age')?.errors?.['minlength']">Informe no mínimo 2 dígitos</span>
+              </mat-error>
+
+              <mat-error *ngIf="formRegister.get('age')?.invalid">
+                <span *ngIf="formRegister.get('age')?.errors?.['pattern']">O campo só permite números</span>
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </th>
+    </table>
+
+    <mat-form-field appearance="fill" [style.width]="'100%'">
+      <mat-label>Identification number (CPF)</mat-label>
+      <input matInput placeholder="your CPF" autocomplete="off" formControlName="cpf" mask="000.000.000-00" required />
+
+      <mat-error *ngIf="formRegister.get('cpf')?.invalid">
+        <span *ngIf="formRegister.get('cpf')?.errors?.['required']">Campo obrigatório</span>
+      </mat-error>
+
+      <mat-error *ngIf="formRegister.get('cpf')?.invalid">
+        <span *ngIf="formRegister.get('cpf')?.errors?.['minlength']">Informe a quantidade de dígitos de um CPF</span>
+      </mat-error>
+
+      <mat-error *ngIf="formRegister.get('cpf')?.invalid">
+        <span *ngIf="formRegister.get('cpf')?.errors?.['pattern']">O campo só permite números</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-card-actions>
+      <button
+        type="button"
+        title="back home"
+        routerLink="/person-information"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        mat-flat-button
+        color="basic"
+      >
+        <mat-icon>arrow_back</mat-icon>
+        back
+      </button>
+
+      <button
+        type="submit"
+        title="submit form"
+        mat-flat-button
+        color="primary"
+        [style.margin-left.rem]="1"
+        [disabled]="!formRegister.valid"
+      >
+        <mat-icon>save</mat-icon>
+        submit
+      </button>
+    </mat-card-actions>
+  </form>
+</main>
