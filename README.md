@@ -1,5 +1,34 @@
 # Angular16
 
+# RecursosAngular16
+
+# Pacote de instalações
+
+ng new nome-projeto --style=scss
+
+## Angular material
+
+ng add @angular/material
+
+## Flex layout
+
+npm i @angular/flex-layout
+
+## Ngx-mask
+
+npm install --save ngx-mask
+
+## Ngx-toastr
+
+npm install ngx-toastr
+
+## Json-server
+
+npm install -g json-server ||
+json-server --watch db.json
+
+## Versão do angular
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
 
 ## Development server
