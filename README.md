@@ -1,10 +1,8 @@
 # Angular16
 
-# RecursosAngular16
-
 # Pacote de instalações
 
-ng new nome-projeto --style=scss
+ng new name-app --routing --defaults --style=scss
 
 ## Angular material
 
