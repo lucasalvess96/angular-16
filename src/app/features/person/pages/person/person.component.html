@@ -1,1 +1,63 @@
-<p>person works!</p>
+<main fxLayout="column" fxLayoutAlign="space-evely start" [style.margin-left.rem]="1">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input #input matInput placeholder="Ex. Mia" (keyup)="applyFilter($event)" />
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table *ngIf="dataSource" mat-table matSort aria-describedby="lista de pessoas" [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cellmat-sort-header>NAME</th>
+        <td *matCellDef="let row" mat-cell>{{ row.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="age">
+        <th *matHeaderCellDef mat-header-cellmat-sort-header>AGE</th>
+        <td *matCellDef="let row" mat-cell>{{ row.age }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cpf">
+        <th *matHeaderCellDef mat-header-cellmat-sort-header>CPF</th>
+        <td *matCellDef="let row" mat-cell>{{ row.cpf }}</td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns" mat-row></tr>
+
+      <tr *matNoDataRow class="mat-row">
+        <td class="mat-cell" colspan="4">Informações não encontradas "{{ input.value }}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator aria-label="Select page of users" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+
+  <mat-card-actions>
+    <button
+      type="button"
+      title="back home"
+      routerLink=""
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      mat-flat-button
+      color="warn"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      back
+    </button>
+    <button
+      type="button"
+      title="go to person-create"
+      routerLink="person-create"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      mat-flat-button
+      color="primary"
+      [style.margin-left.rem]="1"
+    >
+      create
+      <mat-icon iconPositionEnd>add_circle</mat-icon>
+    </button>
+  </mat-card-actions>
+</main>
+<mat-progress-spinner *ngIf="loading" [color]="color" [mode]="mode" [value]="value"> </mat-progress-spinner>
