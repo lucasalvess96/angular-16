@@ -1,9 +1,10 @@
 {
   "person": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "typicode",
+      "age": "12",
+      "cpf": "12121313131",
+      "id": 1
     },
     {
       "name": "lucas",
