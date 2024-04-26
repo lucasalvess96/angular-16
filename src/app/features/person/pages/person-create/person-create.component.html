@@ -5,7 +5,7 @@
     *ngIf="formRegister"
     [formGroup]="formRegister"
     [style.minWidth.vw]="'12.5'"
-    [style.maxWidth.vw]="'41.6'"
+    [style.maxWidth.vw]="'33.9'"
     [style.width]="'100%'"
     (ngSubmit)="onSubmit()"
   >
@@ -19,6 +19,7 @@
 
               <mat-error *ngIf="formRegister.get('name')?.invalid">
                 <span *ngIf="formRegister.get('name')?.errors?.['required']">Campo obrigatório</span>
+                <span *ngIf="formRegister.get('name')?.errors?.['pattern']">O campo só permite letras</span>
               </mat-error>
 
               <mat-error *ngIf="formRegister.get('name')?.invalid">
@@ -42,13 +43,7 @@
 
               <mat-error *ngIf="formRegister.get('age')?.invalid">
                 <span *ngIf="formRegister.get('age')?.errors?.['required']">Campo obrigatório</span>
-              </mat-error>
-
-              <mat-error *ngIf="formRegister.get('age')?.invalid">
-                <span *ngIf="formRegister.get('age')?.errors?.['minlength']">Informe no mínimo 2 dígitos</span>
-              </mat-error>
-
-              <mat-error *ngIf="formRegister.get('age')?.invalid">
+                <span *ngIf="formRegister.get('age')?.errors?.['minlength']">Informe no mínimo 2 dígitos, </span>
                 <span *ngIf="formRegister.get('age')?.errors?.['pattern']">O campo só permite números</span>
               </mat-error>
             </mat-form-field>
@@ -57,15 +52,12 @@
       </th>
     </table>
 
-    <mat-form-field appearance="fill" [style.width]="'100%'">
+    <mat-form-field appearance="fill" [style.width]="'100%'" [style.margin-left.rem]="0.3">
       <mat-label>Identification number (CPF)</mat-label>
       <input matInput placeholder="your CPF" autocomplete="off" formControlName="cpf" mask="000.000.000-00" required />
 
       <mat-error *ngIf="formRegister.get('cpf')?.invalid">
         <span *ngIf="formRegister.get('cpf')?.errors?.['required']">Campo obrigatório</span>
-      </mat-error>
-
-      <mat-error *ngIf="formRegister.get('cpf')?.invalid">
         <span *ngIf="formRegister.get('cpf')?.errors?.['minlength']">Informe a quantidade de dígitos de um CPF</span>
       </mat-error>
 
