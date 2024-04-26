@@ -7,17 +7,17 @@
   <div class="mat-elevation-z8">
     <table *ngIf="dataSource" mat-table matSort aria-describedby="lista de pessoas" [dataSource]="dataSource">
       <ng-container matColumnDef="name">
-        <th *matHeaderCellDef mat-header-cellmat-sort-header>NAME</th>
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>NAME</th>
         <td *matCellDef="let row" mat-cell>{{ row.name }}</td>
       </ng-container>
 
       <ng-container matColumnDef="age">
-        <th *matHeaderCellDef mat-header-cellmat-sort-header>AGE</th>
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>AGE</th>
         <td *matCellDef="let row" mat-cell>{{ row.age }}</td>
       </ng-container>
 
       <ng-container matColumnDef="cpf">
-        <th *matHeaderCellDef mat-header-cellmat-sort-header>CPF</th>
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>CPF</th>
         <td *matCellDef="let row" mat-cell>{{ row.cpf }}</td>
       </ng-container>
 
@@ -41,6 +41,7 @@
       ariaCurrentWhenActive="page"
       mat-flat-button
       color="warn"
+      [style.margin-top.rem]="1"
     >
       <mat-icon>arrow_back</mat-icon>
       back
@@ -54,9 +55,10 @@
       mat-flat-button
       color="primary"
       [style.margin-left.rem]="1"
+      [style.margin-top.rem]="1"
     >
       create
-      <mat-icon iconPositionEnd>add_circle</mat-icon>
+      <mat-icon iconPositionEnd>create</mat-icon>
     </button>
   </mat-card-actions>
 </main>

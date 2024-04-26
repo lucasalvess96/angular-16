@@ -53,8 +53,9 @@ export class PersonComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    if (this.dataSource?.filter && this.dataSource?.paginator) {
-      this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
