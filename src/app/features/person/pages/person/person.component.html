@@ -5,7 +5,13 @@
   </mat-form-field>
 
   <div class="mat-elevation-z8">
-    <table *ngIf="dataSource" mat-table matSort aria-describedby="lista de pessoas" [dataSource]="dataSource">
+    <table
+      *ngIf="dataSource$ | async; dataSource"
+      mat-table
+      matSort
+      aria-describedby="lista de pessoas"
+      [dataSource]="dataSource"
+    >
       <ng-container matColumnDef="name">
         <th *matHeaderCellDef mat-header-cell mat-sort-header>NAME</th>
         <td *matCellDef="let row" mat-cell>{{ row.name }}</td>

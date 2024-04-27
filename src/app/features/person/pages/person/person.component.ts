@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Person } from '../../models/person';
 import { PersonService } from './../../services/person.service';
 
@@ -17,6 +17,8 @@ export class PersonComponent implements OnInit {
   displayedColumns: string[] = ['name', 'age', 'cpf'];
 
   dataSource!: MatTableDataSource<Person>;
+
+  dataSource$!: Observable<Person[]>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -38,21 +40,19 @@ export class PersonComponent implements OnInit {
 
   list(): void {
     this.loading = true;
-    this.personService
-      .listPerson()
-      .pipe(
-        tap((response: Person[]) => {
-          this.loading = false;
-          this.dataSource = new MatTableDataSource(response);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-        }),
-      )
-      .subscribe();
+    this.dataSource$ = this.personService.listPerson().pipe(
+      tap((response: Person[]) => {
+        this.loading = false;
+        this.dataSource = new MatTableDataSource(response);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }),
+    );
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
+
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
