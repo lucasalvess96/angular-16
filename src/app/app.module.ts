@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -10,15 +10,8 @@ import { WelcomeModule } from './features/welcome/welcome.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    WelcomeModule,
-    PersonModule,
-    PageNotFoundModule,
-    RouterModule,
-  ],
-  providers: [],
+  imports: [BrowserModule, BrowserAnimationsModule, WelcomeModule, PersonModule, PageNotFoundModule, RouterModule],
+  providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
