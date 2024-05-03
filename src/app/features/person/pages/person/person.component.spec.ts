@@ -17,6 +17,7 @@ describe('PersonComponent', () => {
   let component: PersonComponent;
   let fixture: ComponentFixture<PersonComponent>;
   let loader: HarnessLoader;
+  let table: MatTableHarness;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
@@ -26,10 +27,14 @@ describe('PersonComponent', () => {
 
     fixture = TestBed.createComponent(PersonComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
+
     loader = TestbedHarnessEnvironment.loader(fixture);
 
     await fixture.whenStable();
+
+    table = await loader.getHarness(MatTableHarness);
   });
 
   it('should create', () => {
@@ -42,7 +47,6 @@ describe('PersonComponent', () => {
   });
 
   it('should get the different kinds of rows in the table', async () => {
-    const table = await loader.getHarness(MatTableHarness);
     const headerRows = await table.getHeaderRows();
     const footerRows = await table.getFooterRows();
     const rows = await table.getRows();
@@ -52,7 +56,6 @@ describe('PersonComponent', () => {
   });
 
   it('should get cells inside a row', async () => {
-    const table = await loader.getHarness(MatTableHarness);
     const headerRows = await table.getHeaderRows();
     const rows = await table.getRows();
 
@@ -69,7 +72,6 @@ describe('PersonComponent', () => {
   });
 
   it('should be able to get the text of a cell', async () => {
-    const table = await loader.getHarness(MatTableHarness);
     const secondRow = (await table.getRows())[1];
     const cells = await secondRow.getCells();
     const cellTexts = await parallel(() => cells.map((cell: MatCellHarness) => cell.getText()));
@@ -77,7 +79,6 @@ describe('PersonComponent', () => {
   });
 
   it('should be able to get the column name of a cell', async () => {
-    const table = await loader.getHarness(MatTableHarness);
     const fifthRow = (await table.getRows())[1];
     const cells = await fifthRow.getCells();
     const cellColumnNames = await parallel(() => cells.map((cell: MatCellHarness) => cell.getColumnName()));
@@ -85,7 +86,6 @@ describe('PersonComponent', () => {
   });
 
   it('should be able to filter cells by text', async () => {
-    const table = await loader.getHarness(MatTableHarness);
     const firstRow = (await table.getRows())[0];
     const cells = await firstRow.getCells({ text: 'typicode' });
     const cellTexts = await parallel(() => cells.map((cell: MatCellHarness) => cell.getText()));
@@ -93,7 +93,6 @@ describe('PersonComponent', () => {
   });
 
   it('should be able to filter cells by column name', async () => {
-    const table = await loader.getHarness(MatTableHarness);
     const firstRow = (await table.getRows())[1];
     const cells = await firstRow.getCells({ columnName: 'name' });
     const cellTexts = await parallel(() => cells.map((cell) => cell.getText()));
