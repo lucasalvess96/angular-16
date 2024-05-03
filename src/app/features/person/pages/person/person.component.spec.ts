@@ -4,7 +4,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableHarness } from '@angular/material/table/testing';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PersonComponent } from './person.component';
 
@@ -16,7 +15,7 @@ describe('PersonComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [PersonComponent],
-      imports: [HttpClientModule, ToastrModule.forRoot(), SharedModule],
+      imports: [HttpClientModule, SharedModule],
     });
     fixture = TestBed.createComponent(PersonComponent);
     component = fixture.componentInstance;
