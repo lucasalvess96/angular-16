@@ -1,1 +1,41 @@
-<p>person-pendencies works!</p>
+<div [style.max-width.rem]="80.31" [style.margin]="'0 auto'" [style.padding.rem]="'0 1'">
+  <mat-card-header>
+    <mat-card-title [style.color]="'#000000'" [style.font-size.rem]="1.5" [style.font-weight]="800">CAD</mat-card-title>
+    <mat-card-subtitle [style.color]="'#919191'" [style.font-size.rem]="1.2" [style.font-weight]="400"
+      >Cadastro de pendências</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-actions>
+    <button
+      mat-button
+      mat-stroked-button
+      color="primary"
+      [routerLink]="['/person-information']"
+      [style.border-color]="'#1565c0'"
+      [style.margin-left.rem]="0.4"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      voltar
+    </button>
+  </mat-card-actions>
+
+  <mat-card [style.background-color]="'#EBF3FA'" [style.margin-top.rem]="1">
+    <mat-card-header [style.height.rem]="4.43">
+      <mat-card-subtitle [style.color]="'#3D4043DE'" [style.font-size.rem]="1.2"
+        >Informações do órgão ou instituição</mat-card-subtitle
+      >
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column" fxLayoutGap.xs="8px" [style.height.rem]="8.87">
+    <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+      <mat-card-subtitle>ÓRGÃO / INSTITUIÇÃO</mat-card-subtitle>
+      <mat-card-title>Prefeitura de Laranjal do Jari</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+      <mat-card-subtitle>REGISTRO</mat-card-subtitle>
+      <mat-card-title>000.0000.0000-00</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
