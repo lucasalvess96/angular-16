@@ -13,6 +13,8 @@ import { PersonService } from '../../services/person.service';
 export class PersonCreateComponent implements OnInit {
   formRegister?: FormGroup;
 
+  error: any;
+
   private formBuilder: FormBuilder = inject(FormBuilder);
 
   private router = inject(Router);
@@ -47,7 +49,7 @@ export class PersonCreateComponent implements OnInit {
           this.formRegister?.markAsPristine();
           this.router.navigate(['/person-information']);
         },
-        error: (erro) => console.log(erro),
+        error: (error: any) => (this.error = error.message),
       });
     }
   }
