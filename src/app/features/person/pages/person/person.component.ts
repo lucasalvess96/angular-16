@@ -14,7 +14,7 @@ import { PersonService } from './../../services/person.service';
   styleUrls: ['./person.component.scss'],
 })
 export class PersonComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'age', 'cpf'];
+  displayedColumns: string[] = ['name', 'age', 'cpf', 'acoes'];
 
   dataSource!: MatTableDataSource<Person>;
 

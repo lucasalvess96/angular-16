@@ -27,6 +27,22 @@
         <td *matCellDef="let row" mat-cell>{{ row.cpf }}</td>
       </ng-container>
 
+      <ng-container matColumnDef="acoes">
+        <th *matHeaderCellDef mat-header-cell>AÇÕES</th>
+        <td *matCellDef="let row" mat-cell>
+          <button
+            mat-button
+            type="button"
+            mat-flat-button
+            color="primary"
+            title="informações detalhadas"
+            [routerLink]="['/person-pendencies', row.pendeciesID]"
+          >
+            Detalhes
+          </button>
+        </td>
+      </ng-container>
+
       <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
       <tr *matRowDef="let row; columns: displayedColumns" mat-row></tr>
 
