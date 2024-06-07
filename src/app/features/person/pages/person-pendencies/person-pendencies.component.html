@@ -38,4 +38,267 @@
       <mat-card-title>000.0000.0000-00</mat-card-title>
     </mat-card-header>
   </mat-card>
+
+  <mat-card [style.background-color]="'#EBF3FA'" [style.margin-top.rem]="1">
+    <div
+      fxLayout="row"
+      fxLayout.xs="column"
+      fxLayoutAlign="space-between center"
+      [style.padding.rem]="1"
+      fxLayoutGap.gt-sm="1rem"
+      fxLayoutGap.gt-xs="0.5rem"
+    >
+      <mat-card-subtitle fxFlex="auto" [style.color]="'#3D4043DE'" [style.font-size.rem]="1.2">
+        Pendências cadastradas
+      </mat-card-subtitle>
+      <form fxFlex="1 auto" fxFlex.xs="100" [style.min-width.rem]="9.37" [style.max-width.rem]="31.25">
+        <mat-form-field appearance="outline" [style.width]="'100%'">
+          <mat-label>Buscar</mat-label>
+          <mat-icon matSuffix>search</mat-icon>
+          <input type="text" matInput placeholder="Ex. pat@example.com" autocomplete="off" />
+        </mat-form-field>
+      </form>
+    </div>
+  </mat-card>
+
+  <mat-card>
+    <mat-checkbox [(ngModel)]="mostrarDetalhes" [style.background-color]="'#F3F3F3'" [style.color]="'#2E2E2E'">
+      <div fxLayout="row" fxLayoutGap="150px" fxLayoutAlign="space-between center">
+        <mat-card-subtitle>Empresa Biscoitos Trakinas S.A.</mat-card-subtitle>
+        <mat-card-subtitle>000.0000.0000-00</mat-card-subtitle>
+        <mat-card-subtitle>01/03/2023</mat-card-subtitle>
+        <mat-card-subtitle>000234</mat-card-subtitle>
+        <mat-card-subtitle [style.background-color]="'#FFDF8F'" [style.border-radius.rem]="1.16"
+          >Aguardando notificação</mat-card-subtitle
+        >
+      </div>
+    </mat-checkbox>
+
+    <div *ngIf="mostrarDetalhes" [style.margin-top.rem]="-1.9">
+      <mat-card-content>
+        <mat-card [style.background-color]="'#F6F7F8'" [style.margin-top.rem]="1">
+          <mat-card-header [style.height.rem]="4.43">
+            <mat-card-subtitle [style.color]="'#3D4043DE'" [style.font-size.rem]="1.2">DADOS</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+
+        <mat-card fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column" fxLayoutGap.xs="8px" [style.height.rem]="8.87">
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>NOME EMPRESARIAL</mat-card-subtitle>
+            <mat-card-title>Empresa Biscoitos Trakinas S.A.</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>CNPJ/CPF</mat-card-subtitle>
+            <mat-card-title>000.0000.0000-00</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Tipo da Pendência Cadastrada</mat-card-subtitle>
+            <mat-card-title>Cadastro Dívida Ativa</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column" fxLayoutGap.xs="8px" [style.height.rem]="8.87">
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Data do Cadastro</mat-card-subtitle>
+            <mat-card-title>01/03/2023</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Data da Última Atualização</mat-card-subtitle>
+            <mat-card-title>01/03/2023</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Mês de Referência</mat-card-subtitle>
+            <mat-card-title>Março 2023</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card [style.background-color]="'#F6F7F8'" [style.margin-top.rem]="1">
+          <mat-card-header [style.height.rem]="4.43">
+            <mat-card-subtitle [style.color]="'#3D4043DE'" [style.font-size.rem]="1.2"
+              >ENDEREÇO DA EMPRESA</mat-card-subtitle
+            >
+          </mat-card-header>
+        </mat-card>
+
+        <mat-card fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column" fxLayoutGap.xs="8px" [style.height.rem]="8.87">
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>CEP</mat-card-subtitle>
+            <mat-card-title>66060-666</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Tipo de Logradouro</mat-card-subtitle>
+            <mat-card-title>Selecione*</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Logradouro</mat-card-subtitle>
+            <mat-card-title>Rua dos Bobos, nº 0</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column" fxLayoutGap.xs="8px" [style.height.rem]="8.87">
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Complemento</mat-card-subtitle>
+            <mat-card-title>Casa</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Nº</mat-card-subtitle>
+            <mat-card-title>27</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Bairro</mat-card-subtitle>
+            <mat-card-title>Umarizal</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>UF</mat-card-subtitle>
+            <mat-card-title>PA</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card [style.background-color]="'#F6F7F8'" [style.margin-top.rem]="1">
+          <mat-card-header [style.height.rem]="4.43">
+            <mat-card-subtitle [style.color]="'#3D4043DE'" [style.font-size.rem]="1.2">PENDÊNCIA</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+
+        <mat-card fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column" fxLayoutGap.xs="8px" [style.height.rem]="8.87">
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Tipo de Dívida </mat-card-subtitle>
+            <mat-card-title>Cadastro Dívida Ativa</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Número e documento de origem</mat-card-subtitle>
+            <mat-card-title>888888-88</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Número do processo de origem</mat-card-subtitle>
+            <mat-card-title>888888-88</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column" fxLayoutGap.xs="8px" [style.height.rem]="8.87">
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Site para consulta</mat-card-subtitle>
+            <mat-card-title>wwww.www.com</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column" fxLayoutGap.xs="8px" [style.height.rem]="8.87">
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Situação da Pendência</mat-card-subtitle>
+            <mat-card-title [style.background-color]="'#FFDF8F'" [style.border-radius.rem]="1.16"
+              >Aguardando notificação</mat-card-title
+            >
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Valor original</mat-card-subtitle>
+            <mat-card-title>R$8173,21</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Valor Ajustado</mat-card-subtitle>
+            <mat-card-title>R$4761,30</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card [style.background-color]="'#F6F7F8'" [style.margin-top.rem]="1">
+          <mat-card-header [style.height.rem]="4.43">
+            <mat-card-subtitle [style.color]="'#3D4043DE'" [style.font-size.rem]="1.2"
+              >Localização do ÓRGÃO Regularizador</mat-card-subtitle
+            >
+          </mat-card-header>
+        </mat-card>
+
+        <mat-card fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column" fxLayoutGap.xs="8px" [style.height.rem]="8.87">
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>CEP</mat-card-subtitle>
+            <mat-card-title>66060-666</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Tipo de Logradouro</mat-card-subtitle>
+            <mat-card-title>Selecione*</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Logradouro</mat-card-subtitle>
+            <mat-card-title>Rua dos Bobos, nº 0</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column" fxLayoutGap.xs="8px" [style.height.rem]="8.87">
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Complemento</mat-card-subtitle>
+            <mat-card-title>Casa</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Nº</mat-card-subtitle>
+            <mat-card-title>27</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Bairro</mat-card-subtitle>
+            <mat-card-title>Umarizal</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>UF</mat-card-subtitle>
+            <mat-card-title>PA</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column" fxLayoutGap.xs="8px" [style.height.rem]="8.87">
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Telefone para Contato 1</mat-card-subtitle>
+            <mat-card-title>(91) 99999-9999</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>Telefone para Contato 2</mat-card-subtitle>
+            <mat-card-title>(91) 99999-9999</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>E-mail para contato</mat-card-subtitle>
+            <mat-card-title>email@email.com</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-header fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-subtitle>E-mail para contato</mat-card-subtitle>
+            <mat-card-title>email@email.com</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-card-content>
+    </div>
+  </mat-card>
 </div>
